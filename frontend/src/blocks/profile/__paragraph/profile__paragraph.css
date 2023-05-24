@@ -1,0 +1,19 @@
+.profile__paragraph {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #FFFFFF;
+	margin: 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 920px) {
+	.profile__paragraph {
+		font-size: 14px;
+		line-height: 17px;
+		margin: 14px 0px 26px 0px;
+		text-align: center;
+	}
+}

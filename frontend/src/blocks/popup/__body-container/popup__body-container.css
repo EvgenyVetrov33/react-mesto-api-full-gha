@@ -1,0 +1,9 @@
+.popup__body-container {
+	position: relative;
+}
+
+@media screen and (max-width: 580px) {
+	.popup__body-container {
+		margin: 0px 40px;
+	}
+}

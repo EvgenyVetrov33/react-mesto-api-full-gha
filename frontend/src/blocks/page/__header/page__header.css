@@ -1,0 +1,15 @@
+.page__header {
+	margin: 0px 200px 40px 200px;
+}
+
+@media screen and (max-width: 1140px) {
+	.page__header {
+		margin: 0px 100px 40px 100px;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.page__header {
+		margin: 0 0 42px 0;
+	}
+}

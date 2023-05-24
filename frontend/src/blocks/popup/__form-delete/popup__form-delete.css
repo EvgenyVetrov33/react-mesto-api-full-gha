@@ -1,0 +1,6 @@
+.popup__form-delete {
+	display: flex;
+	flex-direction: column;
+	padding: 0px 36px 37px 36px;
+	max-width: 430px;
+}

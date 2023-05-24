@@ -1,0 +1,35 @@
+.popup__input {
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 6px 0px 7px 0px;
+	margin: 0px 0px 10px 0px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 17px;
+	color: #000;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+}
+
+.popup__input:focus {
+	outline: none;
+}
+
+.popup__input:nth-child(2) {
+	margin: 0px 0px 40px 0px;
+}
+
+@media screen and (max-width: 580px) {
+	.popup__input {
+		width: 100%;
+		padding: 10px 0px 8px 0px;
+		margin: 0px 0px 0px 0px;
+	}
+
+	.popup__input:nth-child(2) {
+		margin: 0px 0px 0px 0px;
+	}
+}

@@ -1,0 +1,14 @@
+.element__button-like {
+	background: url('../../../images/heart.svg') no-repeat;
+	align-self: center;
+	padding: 0;
+	transition: opacity .4s ease 0s;
+	min-width: 22px;
+	min-height: 19px;
+	border: 0;
+	cursor: pointer;
+}
+
+.element__button-like:hover {
+	opacity: 0.6;
+}

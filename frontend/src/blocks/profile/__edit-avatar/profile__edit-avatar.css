@@ -1,0 +1,27 @@
+.profile__edit-avatar {
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-image: url("../../../images/avatar-edit-btn.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	opacity: 0;
+	cursor: pointer;
+	transition: all .5s ease-in-out;
+}
+
+.profile__edit-avatar:hover {
+	transition: all 0.5s ease-in-out;
+	opacity: .8;
+	background-color: black;
+}
+
+@media screen and (max-width: 920px) {
+	.profile__edit-avatar {
+		margin: 0px 0px 26px 0px;
+	}
+}

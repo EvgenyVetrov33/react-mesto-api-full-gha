@@ -1,0 +1,11 @@
+.popup__label {}
+
+.popup__label:nth-child(2) {
+	margin: 0px 0px 0px 0px;
+}
+
+@media screen and (max-width: 580px) {
+	.popup__label:nth-child(2) {
+		margin: 0px 0px 0px 0px;
+	}
+}
