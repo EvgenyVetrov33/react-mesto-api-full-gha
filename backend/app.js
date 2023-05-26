@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-mongoose.connect('mongodb://127.0.0.1/mestodb ', {
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb ', {
   useNewUrlParser: true,
 });
 
