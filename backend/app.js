@@ -9,11 +9,11 @@ const { errors } = require('celebrate');
 const errorsHandler = require('./errors/errorsHandler');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const corsOption = require('./middlewares/cors');
+// const corsOption = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
-app.use(cors(corsOption));
+app.use(cors());
 
 app.use(requestLogger); // подключаем логгер запросов
 app.use(bodyParser.json());
