@@ -10,8 +10,8 @@ const cardRoutes = require('./cards');
 router.post('/signup', signUp, createUser);
 router.post('/signin', signIn, login);
 
-router.use('/api', auth, userRoutes);
-router.use('/api', auth, cardRoutes);
+router.use('/', auth, userRoutes);
+router.use('/', auth, cardRoutes);
 
 router.use('/*', auth, () => {
   throw new NotFoundError('Запрашиваемый ресурс не найден');
