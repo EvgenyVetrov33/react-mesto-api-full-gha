@@ -24,7 +24,7 @@ mongoose.connect('mongodb://127.0.0.1/mestodb ', {
   useNewUrlParser: true,
 });
 
-app.use('/api', router);
+app.use('/', router);
 
 app.use(errorLogger); // подключаем логгер ошибок
 
