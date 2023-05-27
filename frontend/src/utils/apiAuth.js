@@ -5,7 +5,7 @@ const checkResponse = (res) => {
 	return Promise.reject(res.status);
 }
 
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://api.selltest.student.nomoredomains.rocks';
 
 const signUp = (email, password) => {
 	const requestUrl = BASE_URL + '/signup';
