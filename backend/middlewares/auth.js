@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (!token) {
-    throw new AuthError('Требуется авторизация');
+    return next(new AuthError('Токен остутствует или некорректен'));
   }
 
   let payload;

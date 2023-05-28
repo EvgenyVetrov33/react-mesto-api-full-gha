@@ -8,6 +8,6 @@ Frontend <https://selltest.student.nomoredomains.monster>
 
 Backend <https://api.selltest.student.nomoredomains.rocks>
 
-IP <84.201.177.225>
+IP <158.160.18.247>
 
 Адрес репозитория: <https://github.com/EvgenyVetrov33/react-mesto-api-full-gha.git>
