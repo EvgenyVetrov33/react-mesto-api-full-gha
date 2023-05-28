@@ -9,6 +9,7 @@ const allowedCors = [
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
   const { origin } = req.headers;
+  console.log(origin);
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
 
