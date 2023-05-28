@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-// const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
@@ -21,7 +20,6 @@ app.use(requestLogger); // подключаем логгер запросов
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-// app.use(helmet());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb ', {
   useNewUrlParser: true,
