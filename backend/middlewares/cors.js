@@ -1,4 +1,5 @@
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+const DEFAULT_ALLOWED_HEADERS = 'Origin, X-Requested-With, Content-Type, Accept';
 
 const allowedCors = [
   'http://127.0.0.1:3000',
@@ -20,7 +21,7 @@ module.exports = (req, res, next) => {
 
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Headers', DEFAULT_ALLOWED_HEADERS);
     return res.end();
   }
 

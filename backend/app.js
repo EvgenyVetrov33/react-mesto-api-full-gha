@@ -9,11 +9,11 @@ const { errors } = require('celebrate');
 const errorsHandler = require('./errors/errorsHandler');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-// const mycors = require('./middlewares/cors');
+const mycors = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
-// app.use(mycors);
+app.use(mycors);
 // app.use(cors());
 
 app.use(requestLogger); // подключаем логгер запросов
@@ -23,6 +23,12 @@ app.use(cookieParser());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb ', {
   useNewUrlParser: true,
+});
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
 });
 
 app.use('/', router);
