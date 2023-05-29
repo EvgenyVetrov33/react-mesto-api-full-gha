@@ -30,6 +30,7 @@ const checkToken = (token) => {
 	const requestUrl = BASE_URL + '/users/me';
 	return fetch(requestUrl, {
 		method: 'GET',
+		mode: 'no-cors',
 		headers: {
 			"Content-Type": "application/json",
 			"Authorization": `Bearer ${token}`
