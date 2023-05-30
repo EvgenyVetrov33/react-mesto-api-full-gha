@@ -22,12 +22,10 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   credentials: 'include',
 };
-
+app.use(corsOptions);
 app.use(helmet());
 app.use(rateLimiter);
 app.use(requestLogger); // подключаем логгер запросов
-app.use(corsOptions);
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
