@@ -23,13 +23,13 @@ const corsOptions = {
   credentials: 'include',
 };
 
-app.use(corsOptions);
 app.use(helmet());
 app.use(rateLimiter);
 app.use(requestLogger); // подключаем логгер запросов
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(corsOptions);
 
 mongoose.connect('mongodb://127.0.0.1/mestodb ', {
   useNewUrlParser: true,
