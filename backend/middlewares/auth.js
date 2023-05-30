@@ -39,5 +39,5 @@ module.exports = (req, res, next) => {
     throw new AuthError('Необходима авторизация');
   }
 
-  next(); // пропускаем запрос дальше
+  next();
 };
