@@ -26,6 +26,8 @@ const corsOptions = {
 app.use(helmet());
 app.use(rateLimiter);
 app.use(requestLogger); // подключаем логгер запросов
+app.use(corsOptions);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -46,7 +48,6 @@ app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
 app.use(errorsHandler);
-app.use(corsOptions);
 
 app.listen(PORT, () => {
   console.log(`Приложение слушает порт: ${PORT}`);
