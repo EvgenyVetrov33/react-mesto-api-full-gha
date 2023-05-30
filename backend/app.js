@@ -29,7 +29,6 @@ app.use(requestLogger); // подключаем логгер запросов
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(corsOptions);
 
 mongoose.connect('mongodb://127.0.0.1/mestodb ', {
   useNewUrlParser: true,
@@ -47,6 +46,7 @@ app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
 app.use(errorsHandler);
+app.use(corsOptions);
 
 app.listen(PORT, () => {
   console.log(`Приложение слушает порт: ${PORT}`);
