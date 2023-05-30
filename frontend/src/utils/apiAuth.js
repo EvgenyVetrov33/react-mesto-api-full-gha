@@ -27,16 +27,27 @@ const signIn = (email, password) => {
 	}).then(checkResponse);
 }
 
-const checkToken = (token) => {
+// const checkToken = (token) => {
+// 	const requestUrl = BASE_URL + '/users/me';
+// 	return fetch(requestUrl, {
+// 		method: 'GET',
+// 		// credentials: 'include',
+// 		headers: {
+// 			"Content-Type": "application/json",
+// 			// "Authorization": `Bearer ${token}`
+// 		},
+// 	}).then(checkResponse);
+// }
+
+const checkToken = () => {
 	const requestUrl = BASE_URL + '/users/me';
 	return fetch(requestUrl, {
 		method: 'GET',
-		// credentials: 'include',
+		credentials: 'include',
 		headers: {
-			"Content-Type": "application/json",
-			// "Authorization": `Bearer ${token}`
+			'Content-Type': 'application/json',
 		},
-	}).then(checkResponse);
+	}).then(this._checkResponse);
 }
 
 export { signUp, signIn, checkToken };
