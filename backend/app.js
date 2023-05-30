@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+// const corsOptions = require('cors');
 const { rateLimiter } = require('./middlewares/rateLimit');
 const errorsHandler = require('./errors/errorsHandler');
 const router = require('./routes/index');
