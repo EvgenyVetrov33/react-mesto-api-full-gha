@@ -15,12 +15,12 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 const corsOptions = {
-  origin: [
-    'http://127.0.0.1:3000',
-    'https://selltest.student.nomoredomains.monster',
-    'http://selltest.student.nomoredomains.monster',
-  ],
-  optionsSuccessStatus: 200,
+  // origin: [
+  //   'http://127.0.0.1:3000',
+  //   'https://selltest.student.nomoredomains.monster',
+  //   'http://selltest.student.nomoredomains.monster',
+  // ],
+  // optionsSuccessStatus: 200,
   credentials: 'true',
 };
 app.use(corsOptions);
