@@ -30,6 +30,7 @@ const signIn = (email, password) => {
 const checkToken = () => {
 	const requestUrl = BASE_URL + '/users/me';
 	return fetch(requestUrl, {
+		mode: 'no-cors',
 		method: 'GET',
 		credentials: 'include',
 		headers: {
