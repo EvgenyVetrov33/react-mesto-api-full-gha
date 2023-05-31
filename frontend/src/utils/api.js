@@ -92,7 +92,7 @@ class Api {
 const api = new Api({
 	baseUrl: 'https://api.selltest.student.nomoredomains.rocks',
 	headers: {
-		// authorization: '56c23e37-2d26-4f99-806c-d72ff6532f25',
+		authorization: '56c23e37-2d26-4f99-806c-d72ff6532f25',
 		'Content-Type': 'application/json'
 	}
 });
