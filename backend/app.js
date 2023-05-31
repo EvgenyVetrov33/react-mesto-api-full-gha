@@ -1,12 +1,12 @@
 require('dotenv').config();
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
-const { rateLimiter } = require('./middlewares/rateLimit');
+// const { rateLimiter } = require('./middlewares/rateLimit');
 const errorsHandler = require('./errors/errorsHandler');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -25,8 +25,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 // app.use(cors());
 
-app.use(helmet());
-app.use(rateLimiter);
+// app.use(helmet());
+// app.use(rateLimiter);
 app.use(requestLogger); // подключаем логгер запросов
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
