@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
-// const cors = require('cors');
+const cors = require('cors');
 const { rateLimiter } = require('./middlewares/rateLimit');
 const errorsHandler = require('./errors/errorsHandler');
 const router = require('./routes/index');
@@ -14,17 +14,17 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-const corsOptions = {
-  origin: [
-    'http://127.0.0.1:3000',
-    'https://selltest.student.nomoredomains.monster',
-    'http://selltest.student.nomoredomains.monster',
-  ],
-  optionsSuccessStatus: 200,
-  credentials: 'include',
-};
-app.use(corsOptions);
-// app.use(cors());
+// const corsOptions = {
+//   origin: [
+//     'http://127.0.0.1:3000',
+//     'https://selltest.student.nomoredomains.monster',
+//     'http://selltest.student.nomoredomains.monster',
+//   ],
+//   optionsSuccessStatus: 200,
+//   credentials: 'include',
+// };
+// app.use(corsOptions);
+app.use(cors());
 
 app.use(helmet());
 app.use(rateLimiter);
