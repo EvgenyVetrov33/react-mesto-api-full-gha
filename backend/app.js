@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
-// const cors = require('cors');
+const cors = require('cors');
 const { rateLimiter } = require('./middlewares/rateLimit');
 const errorsHandler = require('./errors/errorsHandler');
 const router = require('./routes/index');
@@ -22,7 +22,7 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
   credentials: 'true',
 };
-app.use(corsOptions);
+app.use(cors(corsOptions));
 // app.use(cors());
 
 app.use(helmet());
