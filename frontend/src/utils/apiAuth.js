@@ -27,7 +27,7 @@ const signIn = (email, password) => {
 	}).then(checkResponse);
 }
 
-const checkToken = () => {
+const checkToken = (token) => {
 	const requestUrl = BASE_URL + '/users/me';
 	return fetch(requestUrl, {
 		mode: 'no-cors',
@@ -35,6 +35,7 @@ const checkToken = () => {
 		credentials: 'include',
 		headers: {
 			"Content-Type": "application/json",
+			'Authorization': `Bearer ${token}`,
 		},
 	}).then(checkResponse);
 }
