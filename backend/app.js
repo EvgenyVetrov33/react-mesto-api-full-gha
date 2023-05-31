@@ -15,7 +15,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 const corsOptions = {
-  origin: ['https://selltest.student.nomoredomains.monster","http://localhost:3000'],
+  origin: ['https://selltest.student.nomoredomains.monster', 'http://localhost:3000'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   preflightContinue: false,
   optionsSuccessStatus: 204,
