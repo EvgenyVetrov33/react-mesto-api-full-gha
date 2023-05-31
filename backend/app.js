@@ -17,7 +17,7 @@ const app = express();
 const corsOptions = {
   origin: ['https://selltest.student.nomoredomains.monster","http://localhost:3000'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  preflightContinue: true,
+  preflightContinue: false,
   optionsSuccessStatus: 204,
   allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
   credentials: 'true',
