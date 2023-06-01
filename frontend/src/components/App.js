@@ -72,7 +72,7 @@ export default function App() {
 	};
 
 	useEffect(() => {
-		const jwt = localStorage.getItem("token");
+		const jwt = localStorage.getItem('jwt');
 		if (jwt) {
 			checkToken(jwt)
 				.then((res) => {
