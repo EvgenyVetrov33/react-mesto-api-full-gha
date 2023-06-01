@@ -1,9 +1,11 @@
 require('dotenv').config();
+
+console.log(process.env);
 // const helmet = require('helmet');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
 // const { rateLimiter } = require('./middlewares/rateLimit');
@@ -30,7 +32,7 @@ app.use(cors(corsOptions));
 app.use(requestLogger); // подключаем логгер запросов
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb ', {
   useNewUrlParser: true,

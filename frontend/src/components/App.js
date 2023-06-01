@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import '../index.css';
 import api from '../utils/api';
-import { signUp, signIn, checkToken } from '../utils/apiAuth';
+import { signUp, signIn } from '../utils/apiAuth';
+import apiAuth from '../utils/apiAuth';
+
 import Header from './Header';
 import Main from './Main';
 import EditProfilePopup from './EditProfilePopup';
@@ -74,11 +76,13 @@ export default function App() {
 	useEffect(() => {
 		const jwt = localStorage.getItem("token");
 		if (jwt) {
-			checkToken(jwt)
+			apiAuth
+				.checkToken(jwt)
 				.then((res) => {
 					if (res) {
 						setIsLoggedIn(true);
-						setEmailValue(res.data.email);
+						// setEmailValue(res.data.email);
+						setEmailValue(res.email);
 						navigate('/');
 					}
 				})

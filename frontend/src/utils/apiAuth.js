@@ -1,38 +1,38 @@
-const checkResponse = (res) => {
+export const checkResponse = (res) => {
 	if (res.ok) {
 		return res.json();
 	}
 	return Promise.reject(res.status);
 }
 
-const BASE_URL = 'https://api.selltest.student.nomoredomains.rocks';
+export const BASE_URL = 'https://api.selltest.student.nomoredomains.rocks';
 
-const signUp = (email, password) => {
+export const signUp = (email, password) => {
 	const requestUrl = BASE_URL + '/signup';
 	return fetch(requestUrl, {
 		method: 'POST',
-		credentials: 'include',
+		// credentials: 'include',
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ email, password }),
 	}).then(checkResponse);
 }
 
-const signIn = (email, password) => {
+export const signIn = (email, password) => {
 	const requestUrl = BASE_URL + '/signin';
 	return fetch(requestUrl, {
 		method: 'POST',
-		credentials: 'include',
+		// credentials: 'include',
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ email, password }),
 	}).then(checkResponse);
 }
 
-const checkToken = (token) => {
+export const checkToken = (token) => {
 	const requestUrl = BASE_URL + '/users/me';
 	return fetch(requestUrl, {
 		mode: 'no-cors',
 		method: 'GET',
-		credentials: 'include',
+		// credentials: 'include',
 		headers: {
 			"Content-Type": "application/json",
 			'Authorization': `Bearer ${token}`,
@@ -40,4 +40,4 @@ const checkToken = (token) => {
 	}).then(checkResponse);
 }
 
-export { signUp, signIn, checkToken };
+// export { signUp, signIn, checkToken };

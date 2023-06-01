@@ -79,7 +79,8 @@ module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
   const { NODE_ENV, JWT_SECRET = 'secret-key', JWT_DEV = 'dev-key' } = process.env;
 
-  User.findUserByCredentials(email, password)
+  return User
+    .findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : JWT_DEV, { expiresIn: '7d' });
       // res
@@ -89,7 +90,7 @@ module.exports.login = (req, res, next) => {
       //     sameSite: 'none',
       //     secure: true,
       //   })
-      return res.send({ token });
+      res.send({ token });
     })
     .catch(next);
 };
