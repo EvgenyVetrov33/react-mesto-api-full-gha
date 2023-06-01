@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import '../index.css';
 import api from '../utils/api';
-import { signUp, signIn } from '../utils/apiAuth';
-import * as apiAuth from '../utils/apiAuth';
-
+import { signUp, signIn, checkToken } from '../utils/apiAuth';
 import Header from './Header';
 import Main from './Main';
 import EditProfilePopup from './EditProfilePopup';
@@ -76,8 +74,7 @@ export default function App() {
 	useEffect(() => {
 		const jwt = localStorage.getItem("token");
 		if (jwt) {
-			apiAuth
-				.checkToken(jwt)
+			checkToken(jwt)
 				.then((res) => {
 					if (res) {
 						setIsLoggedIn(true);
