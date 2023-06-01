@@ -72,7 +72,7 @@ export default function App() {
 	};
 
 	useEffect(() => {
-		const jwt = localStorage.getItem('jwt');
+		const jwt = localStorage.getItem("token");
 		if (jwt) {
 			checkToken(jwt)
 				.then((res) => {
@@ -86,7 +86,7 @@ export default function App() {
 					console.error(err);
 				});
 		}
-	}, [navigate]);
+	}, []);
 
 	useEffect(() => {
 		if (isLoggedIn) {
