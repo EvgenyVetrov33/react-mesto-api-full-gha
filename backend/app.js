@@ -10,6 +10,7 @@ const cors = require('cors');
 const errorsHandler = require('./errors/errorsHandler');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const auth = require('./middlewares/auth');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -42,6 +43,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use(auth);
 app.use('/', router);
 
 app.use(errorLogger); // подключаем логгер ошибок
