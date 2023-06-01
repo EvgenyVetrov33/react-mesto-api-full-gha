@@ -13,8 +13,12 @@ class Api {
 
 	// Получение карточек с сервера
 	setInitialCards() {
+		const token = localStorage.getItem("token");
 		return fetch(`${this._baseUrl}/cards`, {
-			headers: this._headers
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${token}`,
+			}
 		})
 			.then(res => this._parseResponse(res));
 	}
