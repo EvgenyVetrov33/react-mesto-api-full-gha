@@ -78,8 +78,7 @@ export default function App() {
 				.then((res) => {
 					if (res) {
 						setIsLoggedIn(true);
-						// setEmailValue(res.data.email);
-						setEmailValue(res.email);
+						setEmailValue(res.data.email);
 						navigate('/');
 					}
 				})
