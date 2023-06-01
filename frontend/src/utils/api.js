@@ -93,7 +93,7 @@ const api = new Api({
 	baseUrl: 'https://api.selltest.student.nomoredomains.rocks',
 	headers: {
 		'Content-Type': 'application/json',
-		'Authorization': `Bearer ${localStorage.getItem('token')}`,
+		'authorization': `Bearer ${localStorage.getItem("jwt")}`,
 	},
 });
 

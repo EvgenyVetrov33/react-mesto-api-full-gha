@@ -37,7 +37,7 @@ export default function App() {
 	function handleLogin(email, password) {
 		signIn(email, password)
 			.then((res) => {
-				localStorage.setItem("token", res.token);
+				localStorage.setItem("jwt", res.token);
 				setIsLoggedIn(true);
 				setEmailValue(email);
 				navigate("/");
