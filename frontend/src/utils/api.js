@@ -14,7 +14,7 @@ class Api {
 	// Получение карточек с сервера
 	setInitialCards() {
 		return fetch(`${this._baseUrl}/cards`, {
-			headers: this._headers,
+			headers: this._headers
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -36,7 +36,7 @@ class Api {
 	deleteCard(cardId) {
 		return fetch(`${this._baseUrl}/cards/${cardId}`, {
 			method: 'DELETE',
-			headers: this._headers,
+			headers: this._headers
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -45,7 +45,7 @@ class Api {
 	setLike(cardId) {
 		return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
 			method: 'PUT',
-			headers: this._headers,
+			headers: this._headers
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -54,7 +54,7 @@ class Api {
 	deleteLike(cardId) {
 		return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
 			method: 'DELETE',
-			headers: this._headers,
+			headers: this._headers
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -62,7 +62,7 @@ class Api {
 	// Получение информации о пользователе с сервера
 	getUserInfo() {
 		return fetch(`${this._baseUrl}/users/me`, {
-			headers: this._headers,
+			headers: this._headers
 		})
 			.then(res => this._parseResponse(res));
 	}
