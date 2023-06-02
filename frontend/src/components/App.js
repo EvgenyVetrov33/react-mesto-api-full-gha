@@ -86,7 +86,7 @@ export default function App() {
 					console.error(err);
 				});
 		}
-	}, []);
+	}, [navigate]);
 
 	useEffect(() => {
 		if (isLoggedIn) {
