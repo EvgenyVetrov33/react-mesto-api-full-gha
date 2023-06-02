@@ -1,8 +1,7 @@
 class Api {
-	constructor(options, headers) {
+	constructor(options) {
 		this._baseUrl = options.baseUrl;
-		this._token = headers['authorization'];
-		// this._headers = options.headers;
+		this._headers = options.headers;
 	}
 
 	_parseResponse(res) {
@@ -15,10 +14,7 @@ class Api {
 	// Получение карточек с сервера
 	setInitialCards() {
 		return fetch(`${this._baseUrl}/cards`, {
-			headers: {
-				authorization: this._token,
-			},
-			credentials: 'include',
+			headers: this._headers,
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -27,11 +23,7 @@ class Api {
 	addCard(data) {
 		return fetch(`${this._baseUrl}/cards`, {
 			method: 'POST',
-			headers: {
-				authorization: this._token,
-				'Content-Type': 'application/json'
-			},
-			credentials: 'include',
+			headers: this._headers,
 			body: JSON.stringify({
 				name: data.name,
 				link: data.link
@@ -44,10 +36,7 @@ class Api {
 	deleteCard(cardId) {
 		return fetch(`${this._baseUrl}/cards/${cardId}`, {
 			method: 'DELETE',
-			headers: {
-				authorization: this._token,
-			},
-			credentials: 'include',
+			headers: this._headers,
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -56,10 +45,7 @@ class Api {
 	setLike(cardId) {
 		return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
 			method: 'PUT',
-			headers: {
-				authorization: this._token,
-			},
-			credentials: 'include',
+			headers: this._headers,
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -68,10 +54,7 @@ class Api {
 	deleteLike(cardId) {
 		return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
 			method: 'DELETE',
-			headers: {
-				authorization: this._token,
-			},
-			credentials: 'include',
+			headers: this._headers,
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -79,10 +62,7 @@ class Api {
 	// Получение информации о пользователе с сервера
 	getUserInfo() {
 		return fetch(`${this._baseUrl}/users/me`, {
-			headers: {
-				authorization: this._token,
-			},
-			credentials: 'include',
+			headers: this._headers,
 		})
 			.then(res => this._parseResponse(res));
 	}
@@ -91,11 +71,7 @@ class Api {
 	editUserInfo(data) {
 		return fetch(`${this._baseUrl}/users/me`, {
 			method: 'PATCH',
-			headers: {
-				authorization: this._token,
-				'Content-Type': 'application/json',
-			},
-			credentials: 'include',
+			headers: this._headers,
 			body: JSON.stringify(data),
 		}).then(res => this._parseResponse(res));
 	}
@@ -104,10 +80,7 @@ class Api {
 	editAvatar(data) {
 		return fetch(`${this._baseUrl}/users/me/avatar`, {
 			method: 'PATCH',
-			headers: {
-				authorization: this._token,
-				'Content-Type': 'application/json',
-			},
+			headers: this._headers,
 			body: JSON.stringify({
 				avatar: data.avatar
 			})
@@ -119,8 +92,8 @@ class Api {
 const api = new Api({
 	baseUrl: 'https://api.selltest.student.nomoredomains.rocks',
 	headers: {
-		'Content-Type': 'application/json'
-		// 'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+		'Content-Type': 'application/json',
+		'authorization': `Bearer ${localStorage.getItem('jwt')}`,
 	},
 });
 
