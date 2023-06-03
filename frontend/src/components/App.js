@@ -79,7 +79,7 @@ export default function App() {
 					if (res) {
 						setIsLoggedIn(true);
 						setEmailValue(res.email);
-						navigate('/', { replace: true });
+						navigate('/');
 					}
 				})
 				.catch((err) => {
