@@ -29,7 +29,7 @@ export default function App() {
 	const [currentUser, setCurrentUser] = useState({})
 	const [cards, setCards] = useState([]);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [emailValue, setEmailValue] = useState('');
+	const [emailValue, setEmailValue] = useState(null);
 	const [popupStatus, setPopupStatus] = useState({ image: '', message: '' });
 	const [infoTooltip, setInfoTooltip] = useState(false);
 	const navigate = useNavigate();
