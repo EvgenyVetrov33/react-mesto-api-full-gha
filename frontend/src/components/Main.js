@@ -21,8 +21,8 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike
 				<button onClick={onAddPlace} type="button" className="profile__add-button"></button>
 			</section>
 			<section className="elements content__elements">
-				{cards.map((card) => (
-					<Card
+				{cards.data.map((card) => (
+					< Card
 						card={card}
 						key={card._id}
 						likes={card.likes.length}
