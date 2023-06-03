@@ -79,14 +79,14 @@ export default function App() {
 					if (res) {
 						setIsLoggedIn(true);
 						setEmailValue(res.data.email);
-						navigate('/');
+						navigate('/', { replace: true });
 					}
 				})
 				.catch((err) => {
 					console.error(err);
 				});
 		}
-	}, [navigate]);
+	}, []);
 
 	useEffect(() => {
 		if (isLoggedIn) {
