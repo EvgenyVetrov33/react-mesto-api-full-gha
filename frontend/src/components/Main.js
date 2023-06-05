@@ -3,22 +3,8 @@ import Card from './Card'
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, cards, onConfirmCardDelete }) {
-	console.log(cards);
 	const currentUser = React.useContext(CurrentUserContext);
-
-	const listCards = cards.map((card) => (
-		< Card
-			card={card}
-			key={card._id}
-			likes={card.likes.length}
-			name={card.name}
-			link={card.link}
-			onCardClick={onCardClick}
-			onCardLike={onCardLike}
-			onConfirmCardDelete={onConfirmCardDelete}
-		/>
-	));
-
+	const obj = {};
 	return (
 		<main className="content page__content">
 			<section className="profile content__profile">
@@ -35,7 +21,18 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike
 				<button onClick={onAddPlace} type="button" className="profile__add-button"></button>
 			</section>
 			<section className="elements content__elements">
-				{listCards}
+				{Array.isArray(obj) ? obj.map(card => {
+					return <Card
+						card={card}
+						key={card._id}
+						likes={card.likes.length}
+						name={card.name}
+						link={card.link}
+						onCardClick={onCardClick}
+						onCardLike={onCardLike}
+						onConfirmCardDelete={onConfirmCardDelete}
+					/>
+				}) : null}
 			</section>
 		</main>
 	)
