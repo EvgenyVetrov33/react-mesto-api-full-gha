@@ -27,10 +27,7 @@ export default function App() {
 	const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(null)
 	const [isLoading, setLoading] = useState(false)
 	const [currentUser, setCurrentUser] = useState({})
-	const [cards = { "cards": [] }, setCards] = useState([]);
-	// const [cards, setCards] = useState({
-	// 	"cards": []
-	// });
+	const [cards, setCards] = useState([]);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [emailValue, setEmailValue] = useState(null);
 	const [popupStatus, setPopupStatus] = useState({ image: '', message: '' });
@@ -95,8 +92,7 @@ export default function App() {
 		if (isLoggedIn) {
 			Promise.all([api.getUserInfo(), api.setInitialCards()]).then(([profileInfo, card]) => {
 				setCurrentUser(profileInfo);
-				console.log(setCards(card));
-				setCards(card);
+				setCards(card.cards);
 			}).catch((err) => {
 				console.error(err);
 			})
