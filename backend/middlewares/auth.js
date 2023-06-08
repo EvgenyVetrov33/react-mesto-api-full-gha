@@ -27,7 +27,7 @@ const { AuthError } = require('../errors/index-errors');
 
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
-  const token = req.cookies.jwt;
+  const token = req.cookies;
 
   if (!token) {
     throw new AuthError('Требуется авторизация');
