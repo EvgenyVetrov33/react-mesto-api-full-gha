@@ -4,7 +4,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, cards, onConfirmCardDelete }) {
 	const currentUser = React.useContext(CurrentUserContext);
-	// const obj = {};
+
 	return (
 		<main className="content page__content">
 			<section className="profile content__profile">
@@ -33,18 +33,6 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike
 						onConfirmCardDelete={onConfirmCardDelete}
 					/>
 				))}
-				{/* {Array.isArray(obj) ? obj.map(card => {
-					return <Card
-						card={card}
-						key={card._id}
-						likes={card.likes.length}
-						name={card.name}
-						link={card.link}
-						onCardClick={onCardClick}
-						onCardLike={onCardLike}
-						onConfirmCardDelete={onConfirmCardDelete}
-					/>
-				}) : null} */}
 			</section>
 		</main>
 	)
