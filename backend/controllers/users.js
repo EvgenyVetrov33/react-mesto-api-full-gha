@@ -94,7 +94,7 @@ module.exports.updateProfile = (req, res, next) => {
 
   User
     .findByIdAndUpdate(
-      { _id: req.user._id },
+      req.user._id,
       { name, about },
       { new: true, runValidators: true },
     )
@@ -102,7 +102,7 @@ module.exports.updateProfile = (req, res, next) => {
       if (!user) {
         return next(new NotFoundError('Пользователь по указанному _id не найден'));
       }
-      return res.send({ user });
+      return res.send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
