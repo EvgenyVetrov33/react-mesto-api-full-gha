@@ -1,10 +1,9 @@
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const User = require('../models/user');
 const User = require('../models/user');
 
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET = 'some-secret-key' } = process.env;
 
 const {
   BadRequestError,
@@ -14,7 +13,7 @@ const {
 
 module.exports.getAllUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.send({ users }))
+    .then((users) => res.send(users))
     .catch(next);
 };
 
