@@ -2,9 +2,9 @@ require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 // const User = require('../models/user');
-const userSchema = require('../models/user');
+const User = require('../models/user');
 
-const { NODE_ENV, JWT_SECRET = 'some-secret-key' } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const {
   BadRequestError,
@@ -13,13 +13,13 @@ const {
 } = require('../errors/index-errors');
 
 module.exports.getAllUsers = (req, res, next) => {
-  userSchema.find({})
+  User.find({})
     .then((users) => res.send({ users }))
     .catch(next);
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
-  userSchema
+  User
     .findById(req.user._id)
     .then((user) => {
       if (!user) {
@@ -33,7 +33,7 @@ module.exports.getCurrentUser = (req, res, next) => {
 module.exports.getUserById = (req, res, next) => {
   const { userId } = req.params;
 
-  userSchema
+  User
     .findById(userId)
     .then((user) => {
       if (!user) {
@@ -57,7 +57,7 @@ module.exports.createUser = (req, res, next) => {
   } = req.body;
 
   bcrypt.hash(password, 10)
-    .then((hash) => userSchema.create({
+    .then((hash) => User.create({
       name, about, avatar, email, password: hash,
     }))
     .then((user) => res.send({
@@ -81,7 +81,7 @@ module.exports.createUser = (req, res, next) => {
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
 
-  userSchema
+  User
     .findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key', { expiresIn: '7d' });
@@ -93,7 +93,7 @@ module.exports.login = (req, res, next) => {
 module.exports.updateProfile = (req, res, next) => {
   const { name, about } = req.body;
 
-  userSchema
+  User
     .findByIdAndUpdate(
       { _id: req.user._id },
       { name, about },
@@ -117,7 +117,7 @@ module.exports.updateProfile = (req, res, next) => {
 module.exports.updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
 
-  userSchema
+  User
     .findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
     .then((user) => {
       if (!user) {
