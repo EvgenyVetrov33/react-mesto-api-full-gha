@@ -59,13 +59,24 @@ module.exports.createUser = (req, res, next) => {
     .then((hash) => User.create({
       name, about, avatar, email, password: hash,
     }))
-    .then((user) => res.send({
-      name: user.name,
-      about: user.about,
-      avatar: user.avatar,
-      email: user.email,
-      _id: user._id,
-    }))
+    // .then((user) => res.send({
+    //   name: user.name,
+    //   about: user.about,
+    //   avatar: user.avatar,
+    //   email: user.email,
+    //   _id: user._id,
+    // }))
+    .then(() => res.status(201)
+      .send(
+        {
+          data: {
+            name,
+            about,
+            avatar,
+            email,
+          },
+        },
+      ))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadRequestError(`Переданы некорректные данные при создании пользователя -- ${err.name}`));
