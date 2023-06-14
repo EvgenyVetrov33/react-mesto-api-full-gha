@@ -78,7 +78,7 @@ export default function App() {
 				.then((res) => {
 					if (res) {
 						setIsLoggedIn(true);
-						setEmailValue(res.data.email);
+						setEmailValue(res.email);
 						navigate('/');
 					}
 				})
@@ -92,29 +92,31 @@ export default function App() {
 		if (isLoggedIn) {
 			Promise.all([api.getUserInfo(), api.setInitialCards()]).then(([profileInfo, card]) => {
 				setCurrentUser(profileInfo);
-				setCards(card.cards);
+				console.log(profileInfo);
+				setCards(card);
+				console.log(card);
 			}).catch((err) => {
-				console.error(err);
+				console.error(err)
 			})
 		}
-	}, [isLoggedIn])
+	}, [isLoggedIn]);
 
 	function handleCardClick(card) {
 		setSelectedCard(card);
 	}
 
 	function handleCardLike(card) {
-		const isLiked = card.likes.some((i) => i._id === currentUser._id);
+		const isLiked = card.likes.some(i => i === currentUser._id);
 
 		if (!isLiked) {
-			api.setLike(card._id).then((newCard) => {
-				setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+			api.setLike(card._id, !isLiked).then((newCard) => {
+				setCards((state) => state.map((c) => (c._id === card._id ? newCard.card : c)));
 			}).catch((err) => {
 				console.error(err);
 			});
 		} else {
-			api.deleteLike(card._id).then((newCard) => {
-				setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+			api.deleteLike(card._id, !isLiked).then((newCard) => {
+				setCards((state) => state.map((c) => (c._id === card._id ? newCard.card : c)));
 			}).catch((err) => {
 				console.error(err);
 			});
