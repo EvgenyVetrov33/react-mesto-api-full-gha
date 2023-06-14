@@ -92,9 +92,7 @@ export default function App() {
 		if (isLoggedIn) {
 			Promise.all([api.getUserInfo(), api.setInitialCards()]).then(([profileInfo, card]) => {
 				setCurrentUser(profileInfo);
-				console.log(profileInfo);
 				setCards(card);
-				console.log(card);
 			}).catch((err) => {
 				console.error(err)
 			})
